@@ -56,7 +56,7 @@ const useStyles = makeStyles({
 const MainTable = ({ demandes, user }) => {
   const classes = useStyles();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(3);
 
   //const rows = demandes.sort((a, b) => (a. < b. ? -1 : 1));
   const emptyRows =
@@ -197,7 +197,7 @@ const MainTable = ({ demandes, user }) => {
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[3, 10, 25, { label: "All", value: -1 }]}
+                rowsPerPageOptions={[3, 5/*, { label: "All", value: -1 }*/]}
                 colSpan={5}
                 count={demandes.length}
                 rowsPerPage={rowsPerPage}
