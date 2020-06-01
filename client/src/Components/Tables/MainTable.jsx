@@ -180,7 +180,7 @@ const MainTable = ({ demandes, user }) => {
                 </StyledTableCell>
                 <StyledTableCell align="center">{demande.etat}</StyledTableCell>
                 <StyledTableCell align="left">
-                  {user === "illustrateur" ? (
+                  {user === "illustrator" ? (
                     <IllustratorAction />
                   ) : (
                     <CompanyAction />
@@ -197,7 +197,7 @@ const MainTable = ({ demandes, user }) => {
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[3, 5/*, { label: "All", value: -1 }*/]}
+                rowsPerPageOptions={[2, 3/*, { label: "All", value: -1 }*/]}
                 colSpan={5}
                 count={demandes.length}
                 rowsPerPage={rowsPerPage}

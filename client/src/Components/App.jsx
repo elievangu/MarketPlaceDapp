@@ -45,7 +45,7 @@ class App extends Component {
       web3: null,
       accounts: null,
       contract: null,
-      userType: "company"
+      userType: "illustrator"
     };
   }
 
@@ -131,7 +131,7 @@ class App extends Component {
     return (
     <>
     <MainTable demandes={rows} user={userType}/>
-    { userType === "illustrateur" ? <IllustratorPanel /> : <CompanyPanel />}
+    { userType === "illustrator" ? <IllustratorPanel /> : <CompanyPanel />}
     </>
     )
   }
