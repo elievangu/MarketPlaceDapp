@@ -7,6 +7,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     width: "25ch",
   },
+  button: {
+    margin: theme.spacing(1),
+  }
 }));
 
 const CompanyPanel = ({
@@ -30,7 +35,11 @@ const CompanyPanel = ({
   reputation,
   remuneration,
   description,
-  handleChange
+  handleChangeRemuneration,
+  handleChangeDelais,
+  handleChangeReputation,
+  handleChangeDescription,
+  handleSubmit
 }) => {
   const classes = useStyles();
   return (
@@ -43,7 +52,7 @@ const CompanyPanel = ({
         <OutlinedInput
           id="outlined-adornment-amount"
           value={remuneration}
-          onChange={handleChange}
+          onChange={handleChangeRemuneration}
           endAdornment={<InputAdornment position="end">wei</InputAdornment>}
           
           labelWidth={110}
@@ -59,7 +68,7 @@ const CompanyPanel = ({
           id="outlined-adornment-amount"
           
           value={delais}
-          onChange={handleChange}
+          onChange={handleChangeDelais}
           endAdornment={<InputAdornment position="end">jours</InputAdornment>}
           labelWidth={50}
         />
@@ -73,7 +82,7 @@ const CompanyPanel = ({
           id="outlined-adornment-amount"
           
           value={reputation}
-          onChange={handleChange}
+          onChange={handleChangeReputation}
           endAdornment={<InputAdornment position="end"><StarBorderIcon /></InputAdornment>}
           labelWidth={90}
         />
@@ -85,16 +94,29 @@ const CompanyPanel = ({
         <OutlinedInput
           id="outlined-adornment-amount"
           value={description}
-          onChange={handleChange}
+          onChange={handleChangeDescription}
           labelWidth={90}
         />
       </FormControl>
+      <Button
+        variant="contained"
+        color="default"
+        className={classes.button}
+        startIcon={<AddIcon />}
+        onSubmit={handleSubmit}
+      >
+        Nouvelle demande
+      </Button>
     </>
   );
 };
 
 CompanyPanel.propTypes = {
-  handleChange: PropTypes.func.isRequired,
+  handleChangeRemuneration: PropTypes.func.isRequired,
+  handleChangeDelais: PropTypes.func.isRequired,
+  handleChangeReputation: PropTypes.func.isRequired,
+  handleChangeDescription: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   handleClickShowPassword: PropTypes.func.isRequired,
   handleMouseDownPassword: PropTypes.func.isRequired,
   amount: PropTypes.number.isRequired,
